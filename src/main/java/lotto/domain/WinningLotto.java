@@ -7,6 +7,7 @@ public class WinningLotto {
     private final int bonusNumber;
 
     public WinningLotto(Lotto lotto, int bonusNumber) {
+        validate(lotto, bonusNumber);
         this.lotto = lotto;
         this.bonusNumber = bonusNumber;
     }
@@ -19,5 +20,13 @@ public class WinningLotto {
 
     private boolean isBonusNumberDuplicate(Lotto lotto, int bonusNumber) {
         return lotto.getNumbers().contains(bonusNumber);
+    }
+
+    public Lotto getLotto() {
+        return lotto;
+    }
+
+    public int getBonusNumber() {
+        return bonusNumber;
     }
 }
