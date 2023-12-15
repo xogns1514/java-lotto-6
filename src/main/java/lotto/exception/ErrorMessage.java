@@ -2,8 +2,9 @@ package lotto.exception;
 
 public enum ErrorMessage {
 
-    BONUS_NUMBER_DUPLICATE_ERROR("보너스 번호와 로또 번호는 중복될 수 없습니다.");
-
+    BONUS_NUMBER_DUPLICATE_ERROR("보너스 번호와 로또 번호는 중복될 수 없습니다."),
+    INVALID_PURCHASE_MONEY_ERROR("올바르지 않은 구입금액입니다."),
+    INVALID_LOTTO_NUMBER_ERROR("올바르지 않은 로또 숫자입니다.");
     private final String message;
     private final String base = "[ERROR] ";
 
