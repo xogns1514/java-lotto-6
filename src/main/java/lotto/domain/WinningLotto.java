@@ -13,13 +13,28 @@ public class WinningLotto {
     }
 
     private void validate(Lotto lotto, int bonusNumber) {
+        checkDuplicate(lotto, bonusNumber);
+        checkBonusNumber(bonusNumber);
+    }
+
+    private void checkDuplicate(Lotto lotto, int bonusNumber) {
         if (isBonusNumberDuplicate(lotto, bonusNumber)) {
-            throw new IllegalArgumentException(ErrorMessage.BONUS_NUMBER_DUPLICATE_ERROR.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.INVALID_BONUS_NUMBER_ERROR.getMessage());
+        }
+    }
+
+    private void checkBonusNumber(int bonusNumber) {
+        if (isValidBonusNumber(bonusNumber)) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_BONUS_NUMBER_ERROR.getMessage());
         }
     }
 
     private boolean isBonusNumberDuplicate(Lotto lotto, int bonusNumber) {
         return lotto.getNumbers().contains(bonusNumber);
+    }
+
+    private boolean isValidBonusNumber(int bonusNumber) {
+        return 1 <= bonusNumber && bonusNumber <= 45;
     }
 
     public Lotto getLotto() {

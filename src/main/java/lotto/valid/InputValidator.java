@@ -7,7 +7,7 @@ public class InputValidator {
 
     private static final String REGEX = "^\\d+$";
 
-    static void validateNumber(String input, String errorMessage) {
+    public static void validateNumber(String input, String errorMessage) {
         checkInputEmpty(input, errorMessage);
         checkInputIsNumeric(input, errorMessage);
     }
