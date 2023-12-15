@@ -15,17 +15,27 @@ public class InputView {
     private static final String INPUT_BONUS_NUMBER = "보너스 번호를 입력해 주세요.";
 
     public static int inputPurchaseMoney() {
-        System.out.println(INPUT_PURCHASE_MONEY);
-        String purchaseMoney = Console.readLine();
-        PurchaseMoneyValidator.validate(purchaseMoney);
-        return Integer.parseInt(purchaseMoney);
+        try {
+            System.out.println(INPUT_PURCHASE_MONEY);
+            String purchaseMoney = Console.readLine();
+            PurchaseMoneyValidator.validate(purchaseMoney);
+            return Integer.parseInt(purchaseMoney);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return inputPurchaseMoney();
+        }
     }
 
     public static List<Integer> inputWinningLotto() {
-        System.out.println(INPUT_WINNING_LOTTO);
-        String winningNumbers = Console.readLine();
-        WinningNumberValidator.validate(winningNumbers);
-        return Converter.convertToIntegerList(winningNumbers);
+        try {
+            System.out.println(INPUT_WINNING_LOTTO);
+            String winningNumbers = Console.readLine();
+            WinningNumberValidator.validate(winningNumbers);
+            return Converter.convertToIntegerList(winningNumbers);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return inputWinningLotto();
+        }
     }
 
     public static int inputBonusNumber() {

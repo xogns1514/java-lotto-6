@@ -4,13 +4,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum Rank {
-
-    NONE("없음", 0, false, 0),
-    FIRST("1등", 6, false, 2_000_000_000),
-    SECOND("2등", 5, true, 30_000_000),
-    THIRD("3등", 5, false, 1_500_000),
+    FIFTH("5등", 3, false, 5000),
     FOURTH("4등", 4, false, 50_000),
-    FIFTH("5등", 3, false, 5000);
+    THIRD("3등", 5, false, 1_500_000),
+    SECOND("2등", 5, true, 30_000_000),
+    FIRST("1등", 6, false, 2_000_000_000),
+    NONE("없음", 0, false, 0);
+
+
+
+
+
 
     private final String ranking;
     private final int matchNumber;
@@ -53,5 +57,9 @@ public enum Rank {
 
     public int getPrize() {
         return prize;
+    }
+
+    public int getMatchNumber() {
+        return matchNumber;
     }
 }

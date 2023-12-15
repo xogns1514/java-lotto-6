@@ -2,9 +2,7 @@ package lotto.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class LottoStore {
@@ -15,14 +13,14 @@ public class LottoStore {
         this.lottos = lottos;
     }
 
-    public void generateLotto(int quantity) {
+    public static LottoStore generateLotto(int quantity) {
         List<Lotto> lottoStore = new ArrayList<>();
         for (int count = 0; count < quantity; count++) {
-            List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
+            List<Integer> numbers = new ArrayList<>(Randoms.pickUniqueNumbersInRange(1, 45, 6));
             Collections.sort(numbers);
             lottoStore.add(new Lotto(numbers));
         }
-        this.lottos = lottoStore;
+        return new LottoStore(lottoStore);
     }
 
     public List<Lotto> getLottos() {
@@ -31,6 +29,11 @@ public class LottoStore {
 
     @Override
     public String toString() {
-        return lottos.toString();
+        StringBuilder sb = new StringBuilder();
+        for (Lotto lotto : lottos) {
+            sb.append(lotto.getNumbers().toString());
+            sb.append(" \n");
+        }
+        return sb.toString().trim();
     }
 }

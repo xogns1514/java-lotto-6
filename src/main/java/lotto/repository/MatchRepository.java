@@ -9,7 +9,6 @@ public class MatchRepository {
     private static final Map<Rank, Integer> repository = new EnumMap<>(Rank.class);
 
     public MatchRepository() {
-        throw new IllegalStateException("MatchRepository");
     }
 
     public void saveMatch(Rank rank) {
@@ -17,6 +16,9 @@ public class MatchRepository {
     }
 
     public int getMatchRankCount(Rank rank) {
+        if (repository.get(rank) == null) {
+            return 0;
+        }
         return repository.get(rank);
     }
 

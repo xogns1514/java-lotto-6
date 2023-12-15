@@ -11,7 +11,7 @@ public class PurchaseMoneyValidator extends InputValidator {
     }
 
     private static void checkMoneyCanDivide(String money) {
-        if (isMoneyDivideWithThousand(money)) {
+        if (!isMoneyDivideWithThousand(money)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_PURCHASE_MONEY_ERROR.getMessage());
         }
     }

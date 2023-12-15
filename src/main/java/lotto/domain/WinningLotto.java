@@ -24,7 +24,7 @@ public class WinningLotto {
     }
 
     private void checkBonusNumber(int bonusNumber) {
-        if (isValidBonusNumber(bonusNumber)) {
+        if (!isValidBonusNumber(bonusNumber)) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_BONUS_NUMBER_ERROR.getMessage());
         }
     }
