@@ -16,16 +16,21 @@ public class LottoStore {
     }
 
     public void generateLotto(int quantity) {
-        List<Lotto> lottos = new ArrayList<>();
+        List<Lotto> lottoStore = new ArrayList<>();
         for (int count = 0; count < quantity; count++) {
             List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
             Collections.sort(numbers);
-            lottos.add(new Lotto(numbers));
+            lottoStore.add(new Lotto(numbers));
         }
-        this.lottos = lottos;
+        this.lottos = lottoStore;
     }
 
     public List<Lotto> getLottos() {
         return lottos;
+    }
+
+    @Override
+    public String toString() {
+        return lottos.toString();
     }
 }
