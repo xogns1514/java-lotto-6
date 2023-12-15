@@ -2,10 +2,8 @@ package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
-import lotto.exception.ErrorMessage;
 import lotto.util.Converter;
-import lotto.valid.InputValidator;
-import lotto.valid.NumberValidator;
+import lotto.valid.WinningNumberValidator;
 import lotto.valid.PurchaseMoneyValidator;
 
 public class InputView {
@@ -23,7 +21,7 @@ public class InputView {
     public static List<Integer> inputWinningLotto() {
         System.out.println(INPUT_WINNING_LOTTO);
         String winningNumbers = Console.readLine();
-        NumberValidator.validate(winningNumbers);
+        WinningNumberValidator.validate(winningNumbers);
         return Converter.convertToIntegerList(winningNumbers);
     }
 
